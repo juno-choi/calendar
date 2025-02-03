@@ -1,13 +1,13 @@
-package com.simol.calendar;
+package com.simol.calendarcommon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CalendarApplicationTests {
+class CalendarCommonApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }

@@ -5,3 +5,6 @@ pluginManagement {
 	}
 }
 rootProject.name = 'calendar'
+
+include 'calendar-api'
+include 'calendar-common'
