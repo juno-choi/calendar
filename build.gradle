@@ -8,20 +8,32 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+tasks.withType(org.springframework.boot.gradle.tasks.bundling.BootJar) {
+	enabled = false
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
 }
 
-bootJar{enabled = false}
-
-jar {enabled = true}
+allprojects {
+	repositories {
+		mavenCentral()
+		maven { url 'https://repo.spring.io/milestone' }
+	}
+}
 
 subprojects {
 
 	group = 'com.simol'
 	version = '0.0.1-SNAPSHOT'
+
+    tasks.withType(org.springframework.boot.gradle.tasks.bundling.BootJar) {
+        enabled = false
+    }
+
 	java {
 		toolchain {
 			languageVersion = JavaLanguageVersion.of(21)
@@ -31,11 +43,6 @@ subprojects {
 	apply plugin: 'java-library'
 	apply plugin: 'org.springframework.boot'
 	apply plugin: 'io.spring.dependency-management'
-
-	repositories {
-		mavenCentral()
-		maven { url 'https://repo.spring.io/milestone' }
-	}
 
 	dependencies {
 		compileOnly 'org.projectlombok:lombok'
@@ -51,6 +58,6 @@ subprojects {
 
 project(':calendar-api') {
 	dependencies {
-		compileOnly project(':calendar-common')
+		implementation project(':calendar-common')
 	}
 }
