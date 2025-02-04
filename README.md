@@ -1,5 +1,12 @@
 # 🔴 Simol Calendar Project
 
+## 🟠 실행
+
+### 🟢 calendar-api
+
+1. root 프로젝트 경로에서 ./gradlew clean build
+1. calendar 프로젝트 경로에서 java -jar ./build/libs/\*.jar 파일 실행
+
 ## 🟠 설계
 
 ### 🟢 요구사항
